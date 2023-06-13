@@ -1,0 +1,266 @@
+#%RAML 1.0 Trait
+responses:
+  504:
+    body:
+      type: object
+      example:
+          {
+            "success": false,
+            "apiName": "my API",
+            "version": "v1",
+            "correlationId": "",
+            "timestamp": "",
+            "errorDetails": [
+              {
+                "code": 504,
+                "reason": "HTTP:GATEWAY_TIMEOUT",
+                "message": "The server tried to access an upstream service and it took more than the expected"
+              }
+            ]
+          }
+
+  503:
+      body:
+        type: object
+        example:
+          {
+            "success": false,
+            "apiName": "my API",
+            "version": "v1",
+            "correlationId": "",
+            "timestamp": "",
+            "errorDetails": [
+              {
+                "code": 503,
+                "reason": "HTTP:SERVICE_UNAVAILABLE",
+                "message": "You have issues connecting to the system"
+              }
+            ]
+          }
+
+  502:
+      body:
+        type: object
+        example:
+          {
+            "success": false,
+            "apiName": "my API",
+            "version": "v1",
+            "correlationId": "",
+            "timestamp": "",
+            "errorDetails": [
+              {
+                "code": 502,
+                "reason": "HTTP:BAD_GATEWAY",
+                "message": "Received an invalid response from the upstream server."
+              }
+            ]
+          }
+
+  501:
+      body:
+        type: object
+        example:
+          {
+            "success": false,
+            "apiName": "my API",
+            "version": "v1",
+            "correlationId": "",
+            "timestamp": "",
+            "errorDetails": [
+              {
+                "code": 501,
+                "reason": "HTTP:METHOD_NOT_IMPLEMENTED",
+                "message": "The method has not been implemented"
+              }
+            ]
+          }
+
+  500:
+      body:
+        type: object
+        example:
+          {
+            "success": false,
+            "apiName": "my API",
+            "version": "v1",
+            "correlationId": "",
+            "timestamp": "",
+            "errorDetails": [
+              {
+                "code": 500,
+                "reason": "HTTP:INTERNAL_SERVER_ERROR",
+                "message": "Internal server error occured."
+              }
+            ]
+          }
+
+  429:
+      body:
+        type: object
+        example:
+          {
+            "success": false,
+            "apiName": "my API",
+            "version": "v1",
+            "correlationId": "",
+            "timestamp": "",
+            "errorDetails": [
+              {
+                "code": 429,
+                "reason": "HTTP:TOO_MANY_REQUESTS",
+                "message": "You have made too many requests to the server"
+              }
+            ]
+          }
+
+  415:
+      body:
+        type: object
+        example:
+          {
+            "success": false,
+            "apiName": "my API",
+            "version": "v1",
+            "correlationId": "",
+            "timestamp": "",
+            "errorDetails": [
+              {
+                "code": 415,
+                "reason": "HTTP:UNSUPPORTED_MEDIA_TYPE",
+                "message": "Media Type not supported"
+              }
+            ]
+          }
+
+  408:
+      body:
+        type: object
+        example:
+          {
+            "success": false,
+            "apiName": "my API",
+            "version": "v1",
+            "correlationId": "",
+            "timestamp": "",
+            "errorDetails": [
+              {
+                "code": 408,
+                "reason": "HTTP:TIMEOUT",
+                "message": "Your request to the server has been timed-out"
+              }
+            ]
+          }
+
+  406:
+      body:
+        type: object
+        example:
+          {
+            "success": false,
+            "apiName": "my API",
+            "version": "v1",
+            "correlationId": "",
+            "timestamp": "",
+            "errorDetails": [
+              {
+                "code": 406,
+                "reason": "HTTP:NOT_ACCEPTABLE",
+                "message": "One of the request or parameters is unacceptable"
+              }
+            ]
+          }
+
+  405:
+      body:
+        type: object
+        example:
+          {
+            "success": false,
+            "apiName": "my API",
+            "version": "v1",
+            "correlationId": "",
+            "timestamp": "",
+            "errorDetails": [
+              {
+                "code": 405,
+                "reason": "HTTP:METHOD_NOT_ALLOWED",
+                "message": "Method not allowed"
+              }
+            ]
+          }
+
+  404:
+      body:
+        type: object
+        example:
+          {
+            "error": {
+              "errors": [
+                  {
+                    "domain": "global",
+                    "reason": "notFound",
+                    "message": "Not Found"
+                  }
+                ],
+                "code": 404,
+                "message": "Not Found"
+              }
+}
+
+  403:
+      body:
+        type: object
+        example:
+            {
+              "error": {
+                "errors": [
+                  {
+                    "domain": "global",
+                    "reason": "forbidden",
+                    "message": "Forbidden"
+                  }
+                ],
+                "code": 403,
+                "message": "Forbidden"
+              }
+            }
+
+  401:
+      body:
+        type: object
+        example:
+            { 
+              "error": {
+                "errors": [
+                    {
+                      "domain": "global",
+                      "reason": "required",
+                      "message": "Login Required",
+                      "locationType": "header",
+                      "location": "Authorization"
+                    }
+                        ],
+                        "code": 401,
+                        "message": "Login Required"
+                        }
+              }
+
+  400:
+      body:
+        type: object
+        example:
+          {
+            "success": false,
+            "apiName": "my API",
+            "version": "v1",
+            "correlationId": "",
+            "timestamp": "",
+            "errorDetails": [
+              {
+                "code": 400,
+                "reason": "HTTP:BAD_REQUEST",
+                "message": "There was an issue with your request message."
+              }
+            ]
+          }

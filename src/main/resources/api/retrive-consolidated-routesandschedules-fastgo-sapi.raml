@@ -1,0 +1,48 @@
+#%RAML 1.0
+title: Retrive-Consolidated-RoutesAndSchedules-FastGo-SAPI
+description: This RAML will fetch Routes and schedules for FatsGo Transport provider
+
+mediaType: application/json
+protocols: [HTTP, HTTPS]
+version: 1.0.0
+baseUri: https://localhost:8081/api/v1
+
+uses:
+  common: /commonlibrary.raml
+
+types:
+  routesData: !include libraries/routes/dataTypes/dataType.raml
+  schedulesData: !include libraries/schedules/dataTypes/dataType.raml
+
+/health:
+  is: [common.errorResponses]
+  get:
+    responses:
+      200:
+        body:
+          type: object
+          example:
+            {
+              "status" : 'Running'
+            }
+
+/{transportType}:
+  /{transportCompany}:
+    /routes:
+      is: [common.errorResponses, common.transactionId]
+      get:
+        responses:
+          200:
+            body:
+              type: routesData
+              example: !include libraries/routes/response-200-Example/example.json
+
+    /schedules:
+      is: [common.errorResponses, common.transactionId, common.departureLocation, common.destinationLocation]
+      get: 
+        responses:
+          200:
+            body:
+              type: schedulesData
+              example: !include libraries/schedules/response-200-examples/examples.json
+                
